@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 	"strings"
+	"fmt"
 )
 
 const headerAuthorization = "Authorization"
@@ -23,7 +24,7 @@ func BeginSession(signingKey string, store Store, sessionState interface{}, w ht
 	//- create a new SessionID
 	sid, err := NewSessionID(signingKey)
 	if err != nil {
-		return InvalidSessionID, errors.New("error creating new SessionID")
+		return InvalidSessionID, fmt.Errorf("error creating new SessionID: %v", err)
 	}
 	//- save the sessionState to the store
 	store.Save(sid, sessionState)

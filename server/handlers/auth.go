@@ -4,32 +4,32 @@ import (
 	"net/http"
 	"encoding/json"
 	"fmt"
-	"github.com/info344-a17/challenges-cjjaeger/servers/gateway/models/users"	
-	"github.com/info344-a17/challenges-cjjaeger/servers/gateway/sessions"	
+	"midas/server/users"	
+	"midas/server/sessions"	
 )
 
 const headerContentType = "Content-Type"
 
 const contentTypeJSON = "application/json"
-
+func (ctx *Context) TestHandler(w http.ResponseWriter, r *http.Request){
+	switch r.Method {
+	case "POST":	
+		nu := &users.NewUser{}
+		if err := json.NewDecoder(r.Body).Decode(nu); err != nil{
+			http.Error(w, fmt.Sprintf("error encoding request body: %v", err), http.StatusBadRequest)	
+			return		
+		}
+		w.WriteHeader(http.StatusCreated)
+		respond(w, nu)
+	default:
+		http.Error(w, "method must be POST", http.StatusMethodNotAllowed)
+		return
+	}
+}
+	
 func (ctx *Context) UsersHandler(w http.ResponseWriter, r *http.Request){
 	
 	switch r.Method {
-	case "GET":	
-		pref := r.URL.Query().Get("q")
-		if len(pref) == 0 {
-			http.Error(w, "Please provide a prefix", http.StatusBadRequest)
-			return
-		}	
-	
-		ids,_:=ctx.trie.FindAll(pref,20)	
-		users,err :=ctx.usersStore.GetAllID(ids)	
-		if err != nil {
-			http.Error(w, fmt.Sprintf("error getting users: %v", err), http.StatusInternalServerError)
-			return
-		}	
-		respond(w, users)
-		
 	case "POST":
 		nu := &users.NewUser{}
 		if err := json.NewDecoder(r.Body).Decode(nu); err != nil{
@@ -52,10 +52,7 @@ func (ctx *Context) UsersHandler(w http.ResponseWriter, r *http.Request){
 			http.Error(w, fmt.Sprintf("error adding user: %v", err), http.StatusInternalServerError)
 			return
 		}
-		go ctx.trie.Insert(user.FirstName, user.ID)
-		go ctx.trie.Insert(user.LastName, user.ID)
-		go ctx.trie.Insert(user.UserName, user.ID)
-		go ctx.trie.Insert(user.Email, user.ID)
+
 		sessionState := &SessionState{
 			Time: time.Now(),
 			User: *user,
@@ -89,24 +86,12 @@ func (ctx *Context) UsersMeHandler(w http.ResponseWriter, r *http.Request){
 			http.Error(w, fmt.Sprintf("error encoding request body: %v", err), http.StatusBadRequest)	
 			return		
 		}
-		user:=sessionState.User
-		go ctx.trie.Remove(user.FirstName, user.ID)		
-		go ctx.trie.Remove(user.LastName, user.ID)
-		go ctx.trie.Remove(user.UserName, user.ID)
-		go ctx.trie.Remove(user.Email, user.ID)
 		if err := ctx.usersStore.Update(sessionState.User.ID, updates); err != nil {
 			http.Error(w, fmt.Sprintf("error updating user: %v", err), http.StatusBadRequest)	
 			return	
 		}
 		sessionState.User.FirstName = updates.FirstName
-		sessionState.User.LastName = updates.LastName
-		user=sessionState.User
-		
-		go ctx.trie.Insert(user.FirstName, user.ID)		
-				
-		go ctx.trie.Insert(user.LastName, user.ID)
-		go ctx.trie.Insert(user.UserName, user.ID)
-		go ctx.trie.Insert(user.Email, user.ID)		
+		sessionState.User.LastName = updates.LastName		
 		if err = ctx.sessionsStore.Save(sessionID, sessionState); err != nil {
 			http.Error(w, fmt.Sprintf("error saving session data: %v", err), http.StatusInternalServerError)
 			return
@@ -127,13 +112,10 @@ func (ctx *Context) SessionsHandler(w http.ResponseWriter, r *http.Request){
 			return		
 		}
 		user, err := ctx.usersStore.GetByEmail(creds.Email)
-		// println(user.Email)
 		
 		if err != nil {
-			println(creds.Email)
-			println(creds.Password)
 			
-			http.Error(w, fmt.Sprintf("invalid credentials pppoppooooop: %v", err), http.StatusBadRequest)	
+			http.Error(w, fmt.Sprintf("invalid credentials: %v", err), http.StatusBadRequest)	
 			return	
 		}
 		if err = user.Authenticate(creds.Password); err != nil {

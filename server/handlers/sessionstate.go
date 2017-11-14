@@ -1,7 +1,7 @@
 package handlers
 import (
 	"time"
-	"github.com/info344-a17/challenges-cjjaeger/servers/gateway/models/users"
+	"midas/server/users"
 )
 
 //TODO: define a session state struct for this web server
