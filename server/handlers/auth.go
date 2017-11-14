@@ -1,0 +1,188 @@
+package handlers
+import (
+	"time"
+	"net/http"
+	"encoding/json"
+	"fmt"
+	"github.com/info344-a17/challenges-cjjaeger/servers/gateway/models/users"	
+	"github.com/info344-a17/challenges-cjjaeger/servers/gateway/sessions"	
+)
+
+const headerContentType = "Content-Type"
+
+const contentTypeJSON = "application/json"
+
+func (ctx *Context) UsersHandler(w http.ResponseWriter, r *http.Request){
+	
+	switch r.Method {
+	case "GET":	
+		pref := r.URL.Query().Get("q")
+		if len(pref) == 0 {
+			http.Error(w, "Please provide a prefix", http.StatusBadRequest)
+			return
+		}	
+	
+		ids,_:=ctx.trie.FindAll(pref,20)	
+		users,err :=ctx.usersStore.GetAllID(ids)	
+		if err != nil {
+			http.Error(w, fmt.Sprintf("error getting users: %v", err), http.StatusInternalServerError)
+			return
+		}	
+		respond(w, users)
+		
+	case "POST":
+		nu := &users.NewUser{}
+		if err := json.NewDecoder(r.Body).Decode(nu); err != nil{
+			http.Error(w, fmt.Sprintf("error encoding request body: %v", err), http.StatusBadRequest)	
+			return		
+		}
+		if err := nu.Validate(); err != nil{
+			http.Error(w, fmt.Sprintf("error invalid new user: %v", err), http.StatusUnprocessableEntity)	
+			return
+		} 
+		if user, err := ctx.usersStore.GetByEmail(nu.Email); err != users.ErrUserNotFound && user != nil{
+			println(user.Email)
+			http.Error(w, fmt.Sprintf("error user email already in use: %v", err), http.StatusUnprocessableEntity)	
+			return
+		}
+		
+
+		user, err := ctx.usersStore.Insert(nu) 
+		if err != nil {
+			http.Error(w, fmt.Sprintf("error adding user: %v", err), http.StatusInternalServerError)
+			return
+		}
+		go ctx.trie.Insert(user.FirstName, user.ID)
+		go ctx.trie.Insert(user.LastName, user.ID)
+		go ctx.trie.Insert(user.UserName, user.ID)
+		go ctx.trie.Insert(user.Email, user.ID)
+		sessionState := &SessionState{
+			Time: time.Now(),
+			User: *user,
+		}
+		if _, err = sessions.BeginSession(ctx.signingKey, ctx.sessionsStore, sessionState, w); err != nil {
+			http.Error(w, fmt.Sprintf("error begining session: %v", err), http.StatusInternalServerError)
+			return
+		} 
+		w.WriteHeader(http.StatusCreated)
+		respond(w, user)
+	default:
+		http.Error(w, "method must be POST", http.StatusMethodNotAllowed)
+		return
+	}
+}
+
+func (ctx *Context) UsersMeHandler(w http.ResponseWriter, r *http.Request){
+
+	sessionState := &SessionState{}
+	sessionID, err := sessions.GetState(r, ctx.signingKey, ctx.sessionsStore, sessionState)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("error authenticating: %v", err), http.StatusUnauthorized)	
+		return
+	}
+	switch r.Method {
+	case "GET":		
+		respond(w, sessionState.User)
+	case "PATCH":
+		updates := &users.Updates{}
+		if err := json.NewDecoder(r.Body).Decode(updates); err != nil{
+			http.Error(w, fmt.Sprintf("error encoding request body: %v", err), http.StatusBadRequest)	
+			return		
+		}
+		user:=sessionState.User
+		go ctx.trie.Remove(user.FirstName, user.ID)		
+		go ctx.trie.Remove(user.LastName, user.ID)
+		go ctx.trie.Remove(user.UserName, user.ID)
+		go ctx.trie.Remove(user.Email, user.ID)
+		if err := ctx.usersStore.Update(sessionState.User.ID, updates); err != nil {
+			http.Error(w, fmt.Sprintf("error updating user: %v", err), http.StatusBadRequest)	
+			return	
+		}
+		sessionState.User.FirstName = updates.FirstName
+		sessionState.User.LastName = updates.LastName
+		user=sessionState.User
+		
+		go ctx.trie.Insert(user.FirstName, user.ID)		
+				
+		go ctx.trie.Insert(user.LastName, user.ID)
+		go ctx.trie.Insert(user.UserName, user.ID)
+		go ctx.trie.Insert(user.Email, user.ID)		
+		if err = ctx.sessionsStore.Save(sessionID, sessionState); err != nil {
+			http.Error(w, fmt.Sprintf("error saving session data: %v", err), http.StatusInternalServerError)
+			return
+		}
+		respond(w, sessionState.User)		
+	default:
+		http.Error(w, "method must be GET or PATCH", http.StatusMethodNotAllowed)
+		return
+	}
+}
+func (ctx *Context) SessionsHandler(w http.ResponseWriter, r *http.Request){
+
+	switch r.Method {
+	case "POST":
+		creds := &users.Credentials{}
+		if err := json.NewDecoder(r.Body).Decode(creds); err != nil{
+			http.Error(w, fmt.Sprintf("error encoding request body: %v", err), http.StatusBadRequest)	
+			return		
+		}
+		user, err := ctx.usersStore.GetByEmail(creds.Email)
+		// println(user.Email)
+		
+		if err != nil {
+			println(creds.Email)
+			println(creds.Password)
+			
+			http.Error(w, fmt.Sprintf("invalid credentials pppoppooooop: %v", err), http.StatusBadRequest)	
+			return	
+		}
+		if err = user.Authenticate(creds.Password); err != nil {
+			http.Error(w, fmt.Sprintf("invalid credentials: %v", err), http.StatusBadRequest)	
+			return	
+		}
+		sessionState := &SessionState{
+			Time: time.Now(),
+			User: *user,
+		}
+		if _, err = sessions.BeginSession(ctx.signingKey, ctx.sessionsStore, sessionState, w); err != nil {
+			http.Error(w, fmt.Sprintf("error begining session: %v", err), http.StatusInternalServerError)
+			return
+		} 
+		
+		respond(w, sessionState.User)		
+	default:
+		http.Error(w, "method must be POST", http.StatusMethodNotAllowed)
+		return
+	}
+}
+
+func (ctx *Context) SessionsMineHandler(w http.ResponseWriter, r *http.Request){
+	// This function handles requests for the "current session" 
+	// resource, and allows clients to end that session. The HTTP 
+	// method must be DELETE. For any other HTTP method, respond 
+	// with an http.StatusMethodNotAllowed error. If there is an 
+	// error getting the session state, respond with an http.StatusUnauthorized error.
+	
+	// If the method is DELETE, follow these steps:
+	
+	// End the current session
+	// Respond with the string "signed out"
+	switch r.Method {
+	case "DELETE":
+		if _, err := sessions.EndSession(r, ctx.signingKey, ctx.sessionsStore); err != nil {
+			http.Error(w, fmt.Sprintf("error authenticating: %v", err), http.StatusUnauthorized)	
+			return
+		}	
+		w.Write([]byte("signed out"))
+	default:
+		http.Error(w, "method must be DELETE", http.StatusMethodNotAllowed)
+		return
+	}
+}
+
+func respond(w http.ResponseWriter, value interface{}) {
+	w.Header().Add(headerContentType, contentTypeJSON)
+	if err := json.NewEncoder(w).Encode(value); err != nil {
+		http.Error(w, fmt.Sprintf("error encoding response value to JSON: %v", err), http.StatusInternalServerError)
+	}
+}
