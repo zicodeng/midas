@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect } from "react-redux";
-
 import * as UserActions from "scripts/redux/actions/user-actions";
 import {Component} from "react";
 
@@ -70,7 +69,7 @@ let features = [
         featureImage : "http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg", featurePageLink:""},
 ];
 
-class HomePage extends Component{
+class HomePage extends React.Component<any, any>{
     public render() {
         return (
             <div className="content">
@@ -103,17 +102,17 @@ class HomePage extends Component{
     }
 
 }
-class WelcomePage extends Component{
+class WelcomePage extends React.Component<any, any>{
 
     constructor(){
         super();
         this.state = {
-            name = ""
+            name : ""
         };
     }
 
-    componentDidMount{
-        setState(name: this.props.name);
+    componentDidMount(){
+        this.setState({name: this.props.name});
     }
 
     public render() {
@@ -128,7 +127,7 @@ class WelcomePage extends Component{
                 <div className="greeting">
                     <h1>Hello</h1>
                     <div className="greeting_text">
-                       Welcome back, {this.props.name}
+                       Welcome back, {this.state.name}
                     </div>
                 </div>
                 <div className="w_features">
