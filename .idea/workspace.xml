@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee3df9e1-6497-4bcf-b3ad-27183c8c4d24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/scripts/redux/containers/app.tsx" afterPath="$PROJECT_DIR$/client/assets/scripts/redux/containers/app.tsx" />
-    </list>
+    <list default="true" id="ee3df9e1-6497-4bcf-b3ad-27183c8c4d24" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -34,8 +31,8 @@
       <file leaf-file-name="app.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/assets/scripts/redux/containers/app.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4263">
-              <caret line="150" column="15" lean-forward="true" selection-start-line="148" selection-start-column="34" selection-end-line="150" selection-end-column="15" />
+            <state relative-caret-position="725">
+              <caret line="94" column="27" lean-forward="true" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -505,15 +502,16 @@
       <updated>1510076425101</updated>
       <workItem from="1510076426659" duration="1052000" />
       <workItem from="1510523631152" duration="8287000" />
-      <workItem from="1510679846276" duration="2529000" />
+      <workItem from="1510679846276" duration="3079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11868000" />
+    <option name="totallyTimeSpent" value="12418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="-12" width="2760" height="1778" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15721172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -523,7 +521,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32988358" sideWeight="0.49870226" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32988358" sideWeight="0.49870226" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -755,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/assets/scripts/redux/containers/app.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4263">
-          <caret line="150" column="15" lean-forward="true" selection-start-line="148" selection-start-column="34" selection-end-line="150" selection-end-column="15" />
+        <state relative-caret-position="725">
+          <caret line="94" column="27" lean-forward="true" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
