@@ -191,7 +191,57 @@ a{
     font-family: "Roboto", sans-serif
 }
 
+<<<<<<< HEAD
 #header{
     display
 }
 >>>>>>> idea
+=======
+/* Header Styling */
+
+.header {
+    height:75px;
+}
+
+.header a{
+    margin:auto;
+}
+.header, .header a{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.header a{
+    width:40%
+}
+
+.header img{
+    max-height:50%;
+    max-width:50%;
+}
+
+.header button{
+    float: right;
+    height:30%;
+    margin-right: 10%;
+
+}
+
+/* Feature Items Styling */
+
+.h_features {
+    display: flex;
+    flex-direction: column;
+    padding:10%;
+}
+
+.h_feature_item *{
+    float:left;
+}
+
+.h_feature_item img {
+    width:40%;
+}
+>>>>>>> layout styling and added a div for h_feature_descriptions

@@ -107,8 +107,10 @@ class HomePage extends React.Component<any, any> {
                     {features.map((item, index) => (
                         <a className="h_feature_item" href={item.featurePageLink} key={index}>
                             <img className="h_feature_img" src={item.featureImage} />
-                            <h3 className="h_feature_header">{item.featureName}</h3>
-                            <div className="h_feature_text">{item.featureDescription}</div>
+                            <div className="h_feature_description">
+                                <h3 className="h_feature_header">{item.featureName}</h3>
+                                <div className="h_feature_text">{item.featureDescription}</div>
+                            </div>
                         </a>
                     ))}
                 </div>

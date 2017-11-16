@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee3df9e1-6497-4bcf-b3ad-27183c8c4d24" name="Default" comment="">
+<<<<<<< HEAD
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/scripts/app.tsx" afterPath="$PROJECT_DIR$/client/assets/scripts/app.tsx" />
+>>>>>>> layout styling and added a div for h_feature_descriptions
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/assets/stylesheets/entries/app.scss" afterPath="$PROJECT_DIR$/client/assets/stylesheets/entries/app.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,6 +35,7 @@
         </entry>
       </file>
       <file leaf-file-name="app.tsx" pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/client/assets/scripts/redux/containers/app.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4321">
@@ -54,9 +59,12 @@
       </file>
       <file leaf-file-name="store.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/assets/scripts/redux/store.ts">
+=======
+        <entry file="file://$PROJECT_DIR$/client/assets/scripts/app.tsx">
+>>>>>>> layout styling and added a div for h_feature_descriptions
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="844">
+              <caret line="113" column="5" lean-forward="true" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -72,6 +80,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="root-reducer.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/assets/scripts/redux/reducers/root-reducer.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,6 +89,14 @@
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="app.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/assets/stylesheets/entries/app.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="655">
+              <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+              <folding />
+>>>>>>> layout styling and added a div for h_feature_descriptions
             </state>
           </provider>
         </entry>
@@ -135,6 +152,10 @@
         <option value="$PROJECT_DIR$/client/public/dist/app.html" />
         <option value="$PROJECT_DIR$/client/assets/scripts/redux/containers/app.tsx" />
         <option value="$PROJECT_DIR$/client/assets/stylesheets/entries/app.scss" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/client/assets/scripts/app.tsx" />
+>>>>>>> layout styling and added a div for h_feature_descriptions
       </list>
     </option>
   </component>
@@ -535,11 +556,16 @@
       <workItem from="1510076426659" duration="1052000" />
       <workItem from="1510523631152" duration="8287000" />
       <workItem from="1510679846276" duration="3079000" />
+<<<<<<< HEAD
       <workItem from="1510852531168" duration="576000" />
+=======
+      <workItem from="1510852531168" duration="2287000" />
+>>>>>>> layout styling and added a div for h_feature_descriptions
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="12994000" />
   </component>
   <component name="ToolWindowManager">
@@ -550,6 +576,19 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3195177" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33268103" sideWeight="0.50414467" order="7" side_tool="true" content_ui="tabs" />
+=======
+    <option name="totallyTimeSpent" value="14705000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-12" y="-12" width="2760" height="1778" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15721172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32988358" sideWeight="0.50278085" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> layout styling and added a div for h_feature_descriptions
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -562,7 +601,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -849,6 +887,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/client/assets/entries/app.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -861,6 +900,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/assets/entries/index.tsx">
+=======
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react/index.d.ts">
+>>>>>>> layout styling and added a div for h_feature_descriptions
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
@@ -870,8 +912,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/assets/scripts/redux/containers/app.tsx">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="4321">
           <caret line="149" column="20" lean-forward="false" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
+=======
+        <state relative-caret-position="766">
+          <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/assets/entries/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/assets/entries/app.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+>>>>>>> layout styling and added a div for h_feature_descriptions
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -880,8 +943,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/assets/stylesheets/entries/app.scss">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="348">
           <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+=======
+        <state relative-caret-position="844">
+          <caret line="113" column="5" lean-forward="true" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/assets/stylesheets/entries/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+>>>>>>> layout styling and added a div for h_feature_descriptions
           <folding />
         </state>
       </provider>
