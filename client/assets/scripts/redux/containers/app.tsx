@@ -146,7 +146,7 @@ class WelcomePage extends React.Component<any, any>{
 
 }
 
-class MainFooter extends Component {
+class MainFooter extends React.Component<any,any> {
     public render(){
         return(
             <div>
