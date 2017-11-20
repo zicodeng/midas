@@ -16,7 +16,7 @@ class App extends React.Component<any, any> {
         let landingPage = <HomePage />;
         switch (this.state.logged) {
             case true:
-                return (landingPage = <WelcomePage name={this.state.name} />);
+                landingPage = <WelcomePage name={this.state.name} />;
         }
         return (
             <div>
@@ -89,7 +89,7 @@ class HomePage extends React.Component<any, any> {
                         <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
                         <h1>Midas</h1>
                     </a>
-                    <button className="log_in_button">Join</button>
+                    <a className="log_in_button">Join</a>
                 </div>
                 <div className="greeting">
                     <h1>Midas</h1>
@@ -97,18 +97,20 @@ class HomePage extends React.Component<any, any> {
                         Helping you to manage money all in one place
                     </div>
                 </div>
-                <div className="h_features">
+                <div className="features">
                     {features.map((item, index) => (
-                        <a className="h_feature_item" href={item.featurePageLink} key={index}>
-                            <img className="h_feature_img" src={item.featureImage} />
-                            <div className="h_feature_description">
+                        <a className="h_feature_item" id={(() => {if(index%2==1){return("odd")}})()} href={item.featurePageLink} key={index}>
+                            <img className="feature_img" src={item.featureImage} />
+                            <div className="feature_description">
                                 <h3 className="h_feature_header">{item.featureName}</h3>
-                                <div className="h_feature_text">{item.featureDescription}</div>
+                                <div className="feature_text">{item.featureDescription}</div>
                             </div>
                         </a>
                     ))}
                 </div>
-                <button className="bottom_log_in_button"> Join </button>
+                <div className="button_wrapper">
+                    <a className="bottom_log_in_button"> Join </a>
+                </div>
             </div>
         );
     }
@@ -132,24 +134,26 @@ class WelcomePage extends React.Component<any, any> {
                     <a>
                         <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
                     </a>
-                    <button className="sign_out_button">Sign Out</button>
+                    <a className="sign_out_button">Sign Out</a>
                 </div>
                 <div className="greeting">
                     <h1>Hello</h1>
                     <div className="greeting_text">Welcome back, {this.state.name}</div>
                 </div>
-                <div className="w_features">
+                <div className="features">
                     {features.map((item, index) => (
-                        <a className="w_feature_item" href={item.featurePageLink} key={index}>
-                            <h3 className="w_feature_header">{item.featureName}</h3>
+                        <a className="feature_item" href={item.featurePageLink} key={index}>
+                            <h3 className="feature_header">{item.featureName}</h3>
                             <img
                                 className="arrow"
-                                src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg"
+                                src="http://students.washington.edu/kpham97/arrow-to-right.jpg"
                             />
                         </a>
                     ))}
                 </div>
-                <button className="bottom_log_in_button"> Join </button>
+                <div className="button_wrapper">
+                    <button className="bottom_sign_out_button"> Sign Out </button>
+                </div>
             </div>
         );
     }
@@ -158,11 +162,11 @@ class WelcomePage extends React.Component<any, any> {
 class MainFooter extends React.Component<any, any> {
     public render() {
         return (
-            <div>
-                <a> Home |</a>
-                <a> Features |</a>
-                <a> Company |</a>
-                <a> Contact |</a>
+            <div className="footer">
+                <a> Home |&emsp;</a>
+                <a> Features |&emsp;</a>
+                <a> Company |&emsp;</a>
+                <a> Contact</a>
             </div>
         );
     }
