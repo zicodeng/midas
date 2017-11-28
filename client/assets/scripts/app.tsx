@@ -8,8 +8,12 @@ class App extends React.Component<any, any> {
     constructor(props, context) {
         super(props, context);
         this.state = {
+<<<<<<< HEAD
             logged: false,
             save: true,
+=======
+            logged: true,
+>>>>>>> fixed some header css
             name: 'temp',
             data: ['']
         };
@@ -91,7 +95,7 @@ class HomePage extends React.Component<any, any> {
         return (
             <div className="content">
                 <div className="header">
-                    <a>
+                    <a className="logo">
                         <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
                         <h1>Midas</h1>
                     </a>
@@ -100,7 +104,7 @@ class HomePage extends React.Component<any, any> {
                 <div className="greeting">
                     <h1>Midas</h1>
                     <div className="greeting_text">
-                        Helping you to manage money all in one place
+                        Helping you to manage your money all in one place
                     </div>
                 </div>
                 <div className="features">
@@ -137,7 +141,7 @@ class WelcomePage extends React.Component<any, any> {
         return (
             <div className="content">
                 <div className="header">
-                    <a>
+                    <a className="logo">
                         <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
                     </a>
                     <a className="sign_out_button">Sign Out</a>
@@ -169,10 +173,10 @@ class MainFooter extends React.Component<any, any> {
     public render() {
         return (
             <div className="footer">
-                <a> Home |&emsp;</a>
-                <a> Features |&emsp;</a>
-                <a> Company |&emsp;</a>
-                <a> Contact</a>
+                <a>Home&emsp;|&emsp;</a>
+                <a>Features&emsp;|&emsp;</a>
+                <a>Company&emsp;|&emsp;</a>
+                <a>Contact</a>
             </div>
         );
     }
