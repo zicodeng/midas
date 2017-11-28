@@ -5,8 +5,9 @@
 @import "helpers/module";
 
 body {
-    color: $color-primary;
-    font-family: "Roboto", sans-serif
+    /*color: $color-primary;*/
+    font-family: "Roboto", sans-serif;
+    color: black;
 }
 
 a{
@@ -19,37 +20,41 @@ a{
 .header {
     height:75px;
     width:100%;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 
-.header, .header a{
+.header, .logo{
     display:flex;
     flex-direction: row;
     align-items: center;
 }
 
 
-.header a{
+.logo{
     width:40%;
     height:100%;
     justify-content: center;
+    text-align: center;
 }
 
-.header img{
+.logo img{
     max-height:50%;
     max-width:50%;
 }
 
-.header button{
-    float: right;
-    height:30%;
-    margin-right: 10%;
+.log_in_button, .sign_out_button{
+    position: absolute;
+    right: 40px;
 
 }
 
 .greeting{
-    margin:0 10%;
+    text-align: center;
+}
+
+.greeting h1{
+    font-size: 1.5em;
 }
 
 /* Feature Items Styling */
@@ -61,6 +66,7 @@ a{
     flex-direction: column;
     margin:5%;
     justify-content: center;
+    align-items: center;
 }
 
 .feature_item, .h_feature_item {
@@ -71,17 +77,29 @@ a{
 .feature_item{
     border: 1px solid black;
     border-radius: 10px;
-    height: 175px;
+    height:150px;
     justify-content: space-between;
 }
 .h_feature_item{
     height:100px;
     justify-content: space-between;
 }
+@media(min-width: 600px ){
+    .h_feature_item{
+        height:200px;
+        width:40%;
+    }
+    .feature_item{
+        height:300px;
+        width:40%;
+    }
+}
 #odd{
     flex-direction: row-reverse;
 }
-.feature_item *{
+.feature_description{
+    width:60%;
+
 }
 
 .feature_img {
@@ -91,8 +109,8 @@ a{
 
 .arrow{
     position:relative;
-    height: 20%;
-    width:15%;
+    height: 10%;
+    width:7.5%;
     margin-right:5%;
     align-self:flex-end;
 
