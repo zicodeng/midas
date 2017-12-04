@@ -1,4 +1,6 @@
 import * as React from 'react';
+import SavingBudget from "./save";
+
 
 class App extends React.Component<any, any> {
     private count: number = 0;
@@ -7,6 +9,7 @@ class App extends React.Component<any, any> {
         super(props, context);
         this.state = {
             logged: false,
+            save: true,
             name: 'temp',
             data: ['']
         };
@@ -17,6 +20,9 @@ class App extends React.Component<any, any> {
         switch (this.state.logged) {
             case true:
                 return (landingPage = <WelcomePage name={this.state.name} />);
+        }
+        if (this.state.save){
+            landingPage = <SavingBudget name={this.state.name} />
         }
         return (
             <div>

@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"bootstrap": "^4.0.0-beta",
-		"compass-mixins": "^0.12.10"
+		"compass-mixins": "^0.12.10",
+		"react-bootstrap": "^0.31.5"
 	}
 }
