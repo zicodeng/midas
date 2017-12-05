@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Graph Report</title>
+    <style>
+        body {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Total Spending for November: $1760</h1>
+    <div id="container"></div>
+
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript">
+        d3.json("./data/user-spending.json", function (data) {
+            var categoryInfo = 1
+            totalAmountInfo = 2;
+
+            // Define a range of colors for our pie chart.
+            var colors = d3.scaleOrdinal()
+                .range(["red", "green", "blue", "yellow", "orange", "purple", "indigo", "skyblue"]);
+
+            var svgCanvas = d3.select("#container")
+                .append("svg")
+                .attr("width", 600)
+                .attr("height", 800);
+
+            // Group all pie chart elements including arcs and tooltip.
+            var graphGroup = svgCanvas.append("g")
+                .attr("class", "pie-chart")
+                .attr("transform", "translate(300, 300)");
+
+            // A function that utilizes data to decide how to slice the pie.
+            var pieFunc = d3.pie()
+                // What value will be used to determine each slice of the pie.
+                .value(function (d) {
+                    return d.total_amount;
+                });
+
+            // Create arcs (pie).
+            var arcs = graphGroup.append("g")
+                .attr("class", "pie-arcs")
+                .on("mouseout", function () {
+                    tooltipGroup.style("display", "none");
+                })
+                .on("mouseover", function () {
+                    tooltipGroup.style("display", "block");
+                })
+                .on("mousemove", function () {
+                    var xPos = d3.mouse(this)[0] + 5;
+                    var yPos = d3.mouse(this)[1] - 5;
+                    tooltipGroup.attr("transform", "translate(" + xPos + ", " + yPos + ")");
+                    tooltipGroup.select("text")
+                        .text("Click a slice to switch between shopping category and total amount.");
+                });
+
+            // Create tooltip.
+            var tooltipGroup = graphGroup.append("g")
+                .attr("class", "tooltip")
+                .style("display", "none");
+
+            tooltipGroup.append("text");
+
+            // Create each individual arc (slice) that makes up the arcs (pie).
+            var arc = arcs.selectAll("g.slice-arc")
+                .data(pieFunc(data), function (d, i) {
+                    return d;
+                })
+                .enter()
+                .append("g")
+                .attr("class", "slice-arc")
+                .attr("current-info", categoryInfo) // Add a current-info attribute to indicate what info is being displayed now.
+                .style("cursor", "pointer")
+                .on("click", function (d, i) {
+                    if (this.getAttribute("current-info") === categoryInfo + "") {
+                        this.setAttribute("current-info", totalAmountInfo);
+                        this.childNodes[1].textContent = "$" + d.data.total_amount;
+                    } else {
+                        this.setAttribute("current-info", categoryInfo);
+                        this.childNodes[1].textContent = d.data.category;
+                    }
+                });
+
+            // Define path for each individual arc (slice) that makes up the arcs (pie).
+            var arcPath = d3.arc()
+                .innerRadius(20)
+                .outerRadius(200);
+
+            // Add path for each individual arc (slice).
+            arc.append("path")
+                .attr("d", arcPath)
+                .attr("fill", function (d) {
+                    return colors(d.data.category);
+                });
+
+            // Add text for each individual arc (slice).
+            arc.append("text")
+                .attr("transform", function (d) {
+                    // Put the text in the center of the arc we draw.
+                    return "translate(" + arcPath.centroid(d) + ")";
+                })
+                .attr("text-anchor", "middle") // Center the text on its origin.
+                .text(function (d) {
+                    return d.data.category;
+                });
+        });
+    </script>
+</body>
+
+</html>
