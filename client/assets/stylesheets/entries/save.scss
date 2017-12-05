@@ -144,44 +144,7 @@ a{
 // 
 // 
 
-.saving.budget {
+.saving_budget {
     margin-left: 5%;
     margin-right: 5%;
-    text-align: center;
-}
-.control-label.budget {
-    display:block;
-    margin: .5em;
-}
-
-// .align-center{
-//     text-align: center;
-// }
-.budget hr{
-    width:25%;
-    align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.spending-alert{
-    margin: 10px;
-}
-.spending-alert p{
-    display:inline;
-    border-radius: 25px;
-    border: 2px solid; 
-    padding: 5px;
-}
-.greeting.budget h2{
-    margin: 10px;
-}
-.budget h2 {
-    font-weight: bold;
-    font-size: 1em;
-}
-.input-alert{
-    color: red;
-    font-size: .75em;
-    padding: 10px;
 }
