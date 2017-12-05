@@ -1,44 +1,44 @@
 {
-	"name": "midas",
-	"version": "1.0.0",
-	"description": "Manage your money in a smarter and easier way.",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "parallel-webpack --progress --colors --watch"
-	},
-	"author": "Zico Deng",
-	"license": "ISC",
-	"devDependencies": {
-		"@types/react": "^16.0.7",
-		"@types/react-dom": "^15.5.5",
-		"babel-core": "^6.26.0",
-		"babel-loader": "^7.1.2",
-		"babel-plugin-transform-decorators-legacy": "^1.3.4",
-		"babel-preset-es2015": "^6.24.1",
-		"babel-preset-react": "^6.24.1",
-		"css-loader": "^0.28.7",
-		"extract-text-webpack-plugin": "^3.0.0",
-		"google-fonts-webpack-plugin": "^0.4.3",
-		"html-webpack-plugin": "^2.30.1",
-		"node-sass": "^4.5.3",
-		"parallel-webpack": "^2.2.0",
-		"react": "^16.0.0",
-		"react-dom": "^16.0.0",
-		"react-redux": "^5.0.6",
-		"redux": "^3.7.2",
-		"redux-logger": "^3.0.6",
-		"redux-promise-middleware": "^4.4.1",
-		"sass-loader": "^6.0.6",
-		"style-loader": "^0.18.2",
-		"ts-loader": "^2.3.7",
-		"typescript": "^2.5.3",
-		"webpack": "^3.6.0",
-		"webpack-dev-server": "^2.9.1"
-	},
-	"dependencies": {
-		"bootstrap": "^4.0.0-beta",
-		"compass-mixins": "^0.12.10",
-		"react-bootstrap": "^0.31.5"
-	}
+    "name": "midas",
+    "version": "1.0.0",
+    "description": "Manage your money in a smarter and easier way.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "parallel-webpack --progress --colors --watch",
+        "start": "node client/transaction/index.js"
+    },
+    "author": "Zico Deng",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/react": "^16.0.7",
+        "@types/react-dom": "^15.5.5",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-plugin-transform-decorators-legacy": "^1.3.4",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "css-loader": "^0.28.7",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "google-fonts-webpack-plugin": "^0.4.3",
+        "html-webpack-plugin": "^2.30.1",
+        "node-sass": "^4.5.3",
+        "parallel-webpack": "^2.2.0",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "react-redux": "^5.0.6",
+        "redux": "^3.7.2",
+        "redux-logger": "^3.0.6",
+        "redux-promise-middleware": "^4.4.1",
+        "sass-loader": "^6.0.6",
+        "style-loader": "^0.18.2",
+        "ts-loader": "^2.3.7",
+        "typescript": "^2.5.3",
+        "webpack": "^3.6.0",
+        "webpack-dev-server": "^2.9.1"
+    },
+    "dependencies": {
+        "bootstrap": "^4.0.0-beta",
+        "compass-mixins": "^0.12.10"
+    }
 }

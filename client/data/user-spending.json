@@ -1,0 +1,26 @@
+[
+    {
+        "category": "Alcohol",
+        "total_amount": 100
+    },
+    {
+        "category": "Grocery",
+        "total_amount": 300
+    },
+    {
+        "category": "Clothes",
+        "total_amount": 600
+    },
+    {
+        "category": "Others",
+        "total_amount": 60
+    },
+    {
+        "category": "Travelling",
+        "total_amount": 200
+    },
+    {
+        "category": "Food",
+        "total_amount": 500
+    }
+]

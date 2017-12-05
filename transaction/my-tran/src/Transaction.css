@@ -1,0 +1,30 @@
+p {
+    height: 100%;
+    padding: 10px;
+    display: inline-block;
+}
+
+.tran-sec {
+    width: 60%;
+    text-align: center;
+    margin-left: 40px;
+}
+
+span {
+    float: left;
+}
+
+span.itemize {
+    clear: both;
+    width: 250px;
+    margin: 5px;
+    text-align: left;
+}
+
+.tran {
+    margin: 10px;
+}
+
+span.text {
+    width: 300px;
+}
