@@ -1,6 +1,9 @@
 import * as React from 'react';
+<<<<<<< HEAD
 import SavingBudget from "./save";
 
+=======
+>>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
 
 class App extends React.Component<any, any> {
     private count: number = 0;
@@ -9,11 +12,15 @@ class App extends React.Component<any, any> {
         super(props, context);
         this.state = {
 <<<<<<< HEAD
+<<<<<<< HEAD
             logged: false,
             save: true,
 =======
             logged: true,
 >>>>>>> fixed some header css
+=======
+            logged: true,
+>>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
             name: 'temp',
             data: ['']
         };
@@ -25,9 +32,12 @@ class App extends React.Component<any, any> {
             case true:
                 landingPage = <WelcomePage name={this.state.name} />;
         }
+<<<<<<< HEAD
         if (this.state.save){
             landingPage = <SavingBudget name={this.state.name} />
         }
+=======
+>>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
         return (
             <div>
                 {landingPage}
