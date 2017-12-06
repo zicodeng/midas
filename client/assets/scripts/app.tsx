@@ -1,9 +1,6 @@
 import * as React from 'react';
-<<<<<<< HEAD
-import SavingBudget from "./save";
 
-=======
->>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
+import SavingBudget from './save';
 
 class App extends React.Component<any, any> {
     private count: number = 0;
@@ -11,16 +8,8 @@ class App extends React.Component<any, any> {
     constructor(props, context) {
         super(props, context);
         this.state = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            logged: false,
-            save: true,
-=======
             logged: true,
->>>>>>> fixed some header css
-=======
-            logged: true,
->>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
+            save: false,
             name: 'temp',
             data: ['']
         };
@@ -32,19 +21,24 @@ class App extends React.Component<any, any> {
             case true:
                 landingPage = <WelcomePage name={this.state.name} />;
         }
-<<<<<<< HEAD
-        if (this.state.save){
-            landingPage = <SavingBudget name={this.state.name} />
+        if (this.state.save) {
+            landingPage = <SavingBudget name={this.state.name} />;
         }
-=======
->>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
         return (
             <div>
+                <button onClick={e => this.handleClickBtn()}>Save</button>
                 {landingPage}
                 <MainFooter />
             </div>
         );
     }
+
+    private handleClickBtn = () => {
+        let save = this.state.save;
+        this.setState({
+            save: !save
+        });
+    };
 }
 
 /*
@@ -119,7 +113,16 @@ class HomePage extends React.Component<any, any> {
                 </div>
                 <div className="features">
                     {features.map((item, index) => (
-                        <a className="h_feature_item" id={(() => {if(index%2==1){return("odd")}})()} href={item.featurePageLink} key={index}>
+                        <a
+                            className="h_feature_item"
+                            id={(() => {
+                                if (index % 2 == 1) {
+                                    return 'odd';
+                                }
+                            })()}
+                            href={item.featurePageLink}
+                            key={index}
+                        >
                             <img className="feature_img" src={item.featureImage} />
                             <div className="feature_description">
                                 <h3 className="h_feature_header">{item.featureName}</h3>
