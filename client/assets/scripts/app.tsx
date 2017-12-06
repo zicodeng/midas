@@ -84,7 +84,7 @@ class HomePage extends React.Component<any, any> {
             <div className="content">
                 <div className="header">
                     <a className="logo">
-                        <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
+                        <img src="http://students.washington.edu/kpham97/logo.png" />
                         <h1>Midas</h1>
                     </a>
                     <a className="log_in_button">Join</a>
@@ -139,7 +139,7 @@ class WelcomePage extends React.Component<any, any> {
             <div className="content">
                 <div className="header">
                     <a className="logo">
-                        <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
+                        <img src="http://students.washington.edu/kpham97/logo.png" />
                     </a>
                     <a className="sign_out_button">Sign Out</a>
                 </div>
