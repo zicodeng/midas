@@ -5,6 +5,11 @@
 @import "helpers/module";
 
 body {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
     /*color: $color-primary;*/
     font-family: "Roboto", sans-serif;
     color: black;
@@ -138,6 +143,7 @@ a{
     justify-content: center;
     width:100%;
     margin: 25px 0 25px 0;
+<<<<<<< HEAD
 }
 // 
 // 
@@ -185,3 +191,159 @@ a{
     font-size: .75em;
     padding: 10px;
 }
+=======
+    color: $color-primary;
+    font-family: "Roboto", sans-serif
+=======
+    /*color: $color-primary;*/
+    font-family: "Roboto", sans-serif;
+    color: black;
+>>>>>>> fixed some header css
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+#header{
+    display
+}
+>>>>>>> idea
+=======
+=======
+a{
+    display:block;
+}
+
+
+>>>>>>> done with css layouting of landing page
+/* Header Styling */
+
+.header {
+    height:75px;
+    width:100%;
+    justify-content: center;
+}
+
+
+.header, .logo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.logo{
+    width:40%;
+    height:100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo img{
+    max-height:50%;
+    max-width:50%;
+}
+
+.log_in_button, .sign_out_button{
+    position: absolute;
+    right: 40px;
+
+}
+
+.greeting{
+    text-align: center;
+}
+
+.greeting h1{
+    font-size: 1.5em;
+}
+
+/* Feature Items Styling */
+.features,.feature_item, .h_feature_item{
+    display:flex;
+}
+
+.features {
+    flex-direction: column;
+    margin:5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature_item, .h_feature_item {
+    flex-direction: row;
+    margin: 2.5%;
+    padding: 2.5%;
+}
+.feature_item{
+    border: 1px solid black;
+    border-radius: 10px;
+    height:150px;
+    justify-content: space-between;
+}
+.h_feature_item{
+    height:100px;
+    justify-content: space-between;
+}
+@media(min-width: 600px ){
+    .h_feature_item{
+        height:200px;
+        width:40%;
+    }
+    .feature_item{
+        height:300px;
+        width:40%;
+    }
+}
+#odd{
+    flex-direction: row-reverse;
+}
+.feature_description{
+    width:60%;
+
+}
+
+.feature_img {
+    width:40%;
+<<<<<<< HEAD
+}
+>>>>>>> layout styling and added a div for h_feature_descriptions
+=======
+    height:auto;
+}
+
+.arrow{
+    position:relative;
+    height: 10%;
+    width:7.5%;
+    margin-right:5%;
+    align-self:flex-end;
+
+}
+
+.feature_header{
+    font-size: 1.5em;
+    margin: .5em;
+    padding: .5em;
+}
+.feature_text, .h_feature_header{
+    margin: .5em 0 .5em 0;
+}
+
+.feature_text{
+    font-size: .75em;
+}
+.button_wrapper{
+    text-align: center;
+}
+
+
+.footer{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    margin: 25px 0 25px 0;
+}
+>>>>>>> done with css layouting of landing page
+=======
+}
+>>>>>>> 66b2084a7dcce9cfcdaeb6561ad6ec97e191d7fc
