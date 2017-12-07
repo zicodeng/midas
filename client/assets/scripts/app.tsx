@@ -57,15 +57,7 @@ let features = [
         featureDescription:
             'You can easily input income and expenses and check it back when you need it',
         featureImage:
-            'http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg',
-        featurePageLink: ''
-    },
-
-    {
-        featureName: 'Scan Receipt',
-        featureDescription: 'Digitize texts using your camera',
-        featureImage:
-            'http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg',
+            'http://students.washington.edu/kpham97/Transaction.jpg',
         featurePageLink: ''
     },
 
@@ -73,7 +65,7 @@ let features = [
         featureName: 'Graph Report',
         featureDescription: "See graphs to get a better idea of where you're spending youre money",
         featureImage:
-            'http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg',
+            'http://students.washington.edu/kpham97/graph.jpg',
         featurePageLink: ''
     },
 
@@ -81,17 +73,9 @@ let features = [
         featureName: 'Set Budget',
         featureDescription: 'Set a budget by customizing your settings and Midas will do the rest',
         featureImage:
-            'http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg',
+            'http://students.washington.edu/kpham97/budget.jpg',
         featurePageLink: ''
     },
-
-    {
-        featureName: 'Saving Goal',
-        featureDescription: 'Create a saving goal and Midas will help you achieve it',
-        featureImage:
-            'http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg',
-        featurePageLink: ''
-    }
 ];
 
 class HomePage extends React.Component<any, any> {
@@ -100,7 +84,7 @@ class HomePage extends React.Component<any, any> {
             <div className="content">
                 <div className="header">
                     <a className="logo">
-                        <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
+                        <img src="http://students.washington.edu/kpham97/logo.png" />
                         <h1>Midas</h1>
                     </a>
                     <a className="log_in_button">Join</a>
@@ -155,7 +139,7 @@ class WelcomePage extends React.Component<any, any> {
             <div className="content">
                 <div className="header">
                     <a className="logo">
-                        <img src="http://students.washington.edu/kpham97/websitetest/static/media/logo.5d5d9eef.svg" />
+                        <img src="http://students.washington.edu/kpham97/logo.png" />
                     </a>
                     <a className="sign_out_button">Sign Out</a>
                 </div>
@@ -165,8 +149,10 @@ class WelcomePage extends React.Component<any, any> {
                 </div>
                 <div className="features">
                     {features.map((item, index) => (
-                        <a className="feature_item" href={item.featurePageLink} key={index}>
+                        <a className="feature_item" href={item.featurePageLink}
+                           key={index}>
                             <h3 className="feature_header">{item.featureName}</h3>
+                            <img className="bg_item" src={item.featureImage}/>
                             <img
                                 className="arrow"
                                 src="http://students.washington.edu/kpham97/arrow-to-right.jpg"
